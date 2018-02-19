@@ -11,7 +11,7 @@ from django.core.serializers import serialize
 def index(request):
     return render(request, 'index.html')
 
-def detail(request, username, date=dt.date.today()):
+def tweetlist(request, username, date=dt.date.today()):
     tweets = []
     user = request.GET.get('username')
 
