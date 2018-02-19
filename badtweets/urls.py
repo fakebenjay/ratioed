@@ -3,6 +3,8 @@ from django.shortcuts import render
 
 from . import views
 
+# app_name = 'badtweets'
+
 urlpatterns = [
     path('', views.index, name='index'),
     path('<str:username>/', views.detail, name='detail'),
