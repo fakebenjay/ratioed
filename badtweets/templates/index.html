@@ -3,14 +3,34 @@
   <head>
     <meta charset="utf-8">
     <title>Ratioed</title>
+    <link rel="stylesheet" href="https://unpkg.com/tachyons@4.9.0/css/tachyons.min.css"/>
   </head>
   <body>
-    <h1>Ratioed</h1>
-    <h2>Twitter's Finest</h2>
-    <p>Enter a username and see all of their shittiest tweets!</p>
-    <form action="/tweetlist/" method="get">
-      <input type="text" name="username"/>
-      <input type="submit" value="Submit" />
-    </form>
+    <div class="fl w-100">
+      <h1>Ratioed</h1>
+      <h2>Twitter's Finest</h2>
+    </div>
+    <div class="fl w-30">
+      <p>Enter a username and see all of their shittiest tweets!</p>
+      <form action="/tweetlist/" method="get">
+        <input type="text" name="username"/>
+        <input type="submit" value="Submit" />
+      </form>
+    </div>
+    <div class="fl w-70" id="tweet-div"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
+
+    <script id="tweet-template" type="text/x-lodash-template">
+      <h3><%= handle %></h3>
+      <small><%= name %></small>
+      <br>
+      <p><%= body %></p>
+      <br>
+      <p>Replies:<%= replies %></p>
+      <p>Retweets:<%= retweets %></p>
+      <p>Likes:<%= likes %></p>
+      <small><%= datetime %></small>
+    </script>
   </body>
 </html>
