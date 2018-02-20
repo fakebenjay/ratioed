@@ -6,9 +6,9 @@ function postTweets(name) {
 
   var badTweets = []
 
-  tweetcall(name, function(json) {
-    json = JSON.parse(json)
-    
+  tweetCall(name, function(raw_json) {
+    json = JSON.parse(raw_json)
+
     for (i=0; i<json.length; i++) {
       badTweets.push({
         'handle': json[i].fields.handle,

@@ -12,15 +12,14 @@
     </div>
     <div class="fl w-30">
       <p>Enter a username and see all of their shittiest tweets!</p>
-      <form action="/tweetlist/" method="get">
-        <input type="text" name="username"/>
-        <input type="submit" value="Submit" />
-      </form>
+      @<input type="text" id="handle-entry" name="username"/>
+      <input type="submit" id="submit" value="Submit" />
     </div>
     <div class="fl w-70" id="tweet-div"></div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
-    <script src="js/wrapper.js"></script>
+    <script src="static/badtweets/js/wrapper.js"></script>
+    <script src="static/badtweets/js/index.js"></script>
 
     <script id="tweet-template" type="text/x-lodash-template">
       <h3><%= handle %></h3>
@@ -33,6 +32,6 @@
       <p>Likes:<%= likes %></p>
       <small><%= datetime %></small>
     </script>
-    <script src="js/lodash/tweet-template.js"></script>
+    <script src="static/badtweets/js/lodash/tweet-template.js"></script>
   </body>
 </html>
