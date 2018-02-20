@@ -9,8 +9,10 @@ function postTweets(name) {
   tweetCall(name, function(raw_json) {
     json = JSON.parse(raw_json)
 
+    debugger
+
     for (i=0; i<json.length; i++) {
-      badTweets.push({
+      tweetDiv += templateFn({
         'handle': json[i].fields.handle,
         'name': json[i].fields.name,
         'body': json[i].fields.body,
@@ -21,8 +23,4 @@ function postTweets(name) {
       })
     }
   })
-
-  for (i=0; i<badTweets.length; i++) {
-    tweetDiv += templateFn(badTweets[i])
-  }
 }
