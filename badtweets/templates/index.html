@@ -25,15 +25,17 @@
     <script src="static/badtweets/js/index.js"></script>
 
     <script id="profile-template" type="text/x-lodash-template">
-      <img src=<%= pic %> />
-      <h2><%= name %></h2>
-      <h3> <a id="handle" href=<%= link %>>@<%= handle %></a></h3>
-      <small>Tweets: <%= tweets %></small>
-      <small>Followers: <%= followers %></small>
-      <small>Following: <%= following %></small>
-      <br>
-      <p>Currently viewing all bad tweets since</p>
-      <p id="date-indicator" style="color: red;"><%= date %></p>
+      <div id="user-infowindow">
+        <img src=<%= pic %> />
+        <h2><%= name %></h2>
+        <h3> <a id="handle" href=<%= link %>>@<%= handle %></a></h3>
+        <small>Tweets: <%= tweets %></small>
+        <small>Followers: <%= followers %></small>
+        <small>Following: <%= following %></small>
+        <br>
+        <p>Currently viewing all bad tweets since</p>
+        <p id="date-indicator" style="color: red;"><%= date %></p>
+      </div>
     </script>
     <script id="tweet-template" type="text/x-lodash-template">
       <h3><%= name %></h3>

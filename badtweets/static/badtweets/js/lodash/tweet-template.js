@@ -6,6 +6,7 @@ function postTweets(paramsObj) {
 
   var tweetDiv = document.getElementById('tweet-div')
 
+  if (!!$('div#user-infowindow')) {$('div#user-infowindow').remove()}
   if (!paramsObj.date) {tweetDiv.innerHTML = loadscreen}
 
   tweetCall(paramsObj, function(rawJSON) {
