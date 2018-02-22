@@ -6,7 +6,6 @@ function postTweets(paramsObj) {
 
   var tweetDiv = document.getElementById('tweet-div')
 
-  if (!!$('div#user-infowindow')) {$('div#user-infowindow').remove()}
   if (!paramsObj.date) {tweetDiv.innerHTML = loadscreen}
 
   tweetCall(paramsObj, function(rawJSON) {
@@ -15,6 +14,7 @@ function postTweets(paramsObj) {
     }
     else {
       if (rawJSON.length === 3) {
+        if (!!$('div#user-infowindow')) {$('div#user-infowindow').remove()}
         var user = JSON.parse(rawJSON[0])[0].fields
         var tweets = JSON.parse(rawJSON[1])
         var date = rawJSON[2]

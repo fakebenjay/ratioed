@@ -19,7 +19,7 @@
     <div class="fl w-70" id="tweet-div">
 
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
     <script src="static/badtweets/js/wrapper.js"></script>
     <script src="static/badtweets/js/index.js"></script>
@@ -28,7 +28,7 @@
       <div id="user-infowindow">
         <img src=<%= pic %> />
         <h2><%= name %></h2>
-        <h3> <a id="handle" href=<%= link %>>@<%= handle %></a></h3>
+        <h3><a id="handle" target="_blank" href=<%= link %>>@<%= handle %></a></h3>
         <small>Tweets: <%= tweets %></small>
         <small>Followers: <%= followers %></small>
         <small>Following: <%= following %></small>
@@ -44,7 +44,7 @@
       <p>Replies:<%= replies %></p>
       <p>Retweets:<%= retweets %></p>
       <p>Likes:<%= likes %></p>
-      <small><a href=<%= link %>><%= datetime %></a></small>
+      <small><a target="_blank" href=<%= link %>><%= datetime %></a></small>
       <br>
     </script>
     <script src="static/badtweets/js/lodash/tweet-template.js"></script>
