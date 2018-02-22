@@ -14,8 +14,10 @@ function postTweets(name) {
       document.querySelector('.w-30').innerHTML += `<br></br><em style='color:red;'>${rawJSON[0].error}</em>`
     }
     else {
+      debugger
       var user = JSON.parse(rawJSON[0])[0].fields
       var tweets = JSON.parse(rawJSON[1])
+      var date = JSON.parse(rawJSON[2])
 
       document.querySelector('.w-30').innerHTML += profileFn({
         'pic': `"${user.pic_ref}"`,
@@ -24,7 +26,8 @@ function postTweets(name) {
         'handle': user.handle,
         'tweets': parseInt(user.tweets).toLocaleString(),
         'followers': parseInt(user.followers).toLocaleString(),
-        'following': parseInt(user.following).toLocaleString()
+        'following': parseInt(user.following).toLocaleString(),
+        'date': 'hello'
       })
 
       for (i=0; i<tweets.length; i++) {

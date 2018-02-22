@@ -25,6 +25,7 @@ def index(request):
 def tweetlist(request, username, date=dt.date.today()):
     user = request.GET.get('username')
     tweetscrape = twitterscraper.query_tweets("from%3A" + user, limit=1, poolsize=1, begindate=dt.date(2006,3,21), enddate=date+dt.timedelta(days=1))
+    date_string = str(date)
 
     if len(tweetscrape) == 0 or len(user.strip()) == 0:
         return JsonResponse([{'error': "Sorry, we couldn't find any tweets. Even good ones."}], safe=False)
@@ -43,7 +44,7 @@ def tweetlist(request, username, date=dt.date.today()):
                         following=soup.find('a', {'data-nav': 'following'})['title'].replace(' Following', '').replace(',', '')
                     )]
 
-        tweets_and_lasttime = scrapeTweets(user, date)
+        tweets_and_lasttime = scrapeTweets(user, date_string)
         tweets = tweets_and_lasttime[0]
         last_tweet_time = tweets_and_lasttime[1]
 
@@ -73,10 +74,10 @@ def moreTweets(request, username):
     last_tweet_time = tweets_and_lasttime[1]
 
     tweet_json = serialize('json', tweets, fields=('name', 'handle', 'tweet_id', 'body', 'link', 'datetime', 'replies', 'rts', 'likes'))
-    return JsonResponse([tweet_json, last_tweet_time], safe=False)
+    return JsonResponse(["blank", tweet_json, last_tweet_time], safe=False)
 
 def routeTweets(request, username, date=dt.date.today()):
     if len(request.GET) == 1:
-        return tweetlist(request, username, date=dt.date.today())
+        return tweetlist(request, username)
     else:
         return moreTweets(request, username)
