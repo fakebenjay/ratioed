@@ -1,11 +1,11 @@
-function tweetCall(name, callback) {
-  fetch(`http://localhost:8000/badtweets/?username=${name}`)
-    .then(res => res.json())
-    .then(json => callback(json))
-}
-
-function lazyCall(name, date, callback) {
-  fetch(`http://localhost:8000/badtweets/?date=${date}&username=${name}`)
-    .then(res => res.json())
-    .then(json => callback(json))
+function tweetCall(paramsObj, callback) {
+  if (!!paramsObj.date) {
+    fetch(`http://localhost:8000/badtweets/?date=${paramsObj.date}&username=${paramsObj.name}`)
+      .then(res => res.json())
+      .then(json => callback(json))
+  } else {
+    fetch(`http://localhost:8000/badtweets/?username=${paramsObj.name}`)
+      .then(res => res.json())
+      .then(json => callback(json))
+  }
 }

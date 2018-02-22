@@ -27,11 +27,13 @@
     <script id="profile-template" type="text/x-lodash-template">
       <img src=<%= pic %> />
       <h2><%= name %></h2>
-      <h3> <a href=<%= link %>>@<%= handle %></a></h3>
+      <h3> <a id="handle" href=<%= link %>>@<%= handle %></a></h3>
       <small>Tweets: <%= tweets %></small>
       <small>Followers: <%= followers %></small>
       <small>Following: <%= following %></small>
-      <small>Currently viewing all bad tweets since <%= date %></small>
+      <br>
+      <p>Currently viewing all bad tweets since</p>
+      <p id="date-indicator" style="color: red;"><%= date %></p>
     </script>
     <script id="tweet-template" type="text/x-lodash-template">
       <h3><%= name %></h3>
