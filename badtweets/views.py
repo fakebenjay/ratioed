@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 import twitterscraper
 import datetime as dt
-from dateutil import tz
+from dateutil import tz, parser
 from IPython import embed
 from .models import Tweet, User
 from bs4 import BeautifulSoup
@@ -23,9 +23,8 @@ def index(request):
     return render(request, 'index.html')
 
 def tweetlist(request, username, date=dt.date.today()):
-    tweets = []
     user = request.GET.get('username')
-    tweetscrape = twitterscraper.query_tweets("from%3A" + user, limit=100, poolsize=1, begindate=dt.date(2006,3,21), enddate=date+dt.timedelta(days=1))
+    tweetscrape = twitterscraper.query_tweets("from%3A" + user, limit=1, poolsize=1, begindate=dt.date(2006,3,21), enddate=date+dt.timedelta(days=1))
 
     if len(tweetscrape) == 0 or len(user.strip()) == 0:
         return JsonResponse([{'error': "Sorry, we couldn't find any tweets. Even good ones."}], safe=False)
@@ -44,12 +43,40 @@ def tweetlist(request, username, date=dt.date.today()):
                         following=soup.find('a', {'data-nav': 'following'})['title'].replace(' Following', '').replace(',', '')
                     )]
 
-        for tweet in tweetscrape:
-            ## This is where "The Ratio" is defined.
-            if (int(tweet.replies) > 2*int(tweet.retweets)) and (int(tweet.replies) >= 1.5*int(tweet.likes)) and (int(tweet.replies) >= 5):
-                t = Tweet(name=tweet.fullname, handle=tweet.user, tweet_id=tweet.id, body=tweet.text, link="http://twitter.com/" + tweet.user + "/status/" + tweet.id, datetime=timezone(tweet.timestamp), replies=tweet.replies, rts=tweet.retweets, likes=tweet.likes)
-                tweets.append(t)
+        tweets_and_lasttime = scrapeTweets(user, date)
+        tweets = tweets_and_lasttime[0]
+        last_tweet_time = tweets_and_lasttime[1]
 
         user_json = serialize('json', user_list, fields=('name', 'handle', 'profile_link', 'pic_ref', 'tweets', 'followers', 'following'))
         tweet_json = serialize('json', tweets, fields=('name', 'handle', 'tweet_id', 'body', 'link', 'datetime', 'replies', 'rts', 'likes'))
-        return JsonResponse([user_json, tweet_json], safe=False)
+        return JsonResponse([user_json, tweet_json, last_tweet_time], safe=False)
+
+def scrapeTweets(username, date):
+    tweets = []
+    date = parser.parse(date).date()
+    tweetscrape = twitterscraper.query_tweets("from%3A" + username, limit=100, poolsize=1, begindate=dt.date(2006,3,21), enddate=date+dt.timedelta(days=1))
+    last_tweet_time = tweetscrape[-1].timestamp
+
+    for tweet in tweetscrape:
+        ## This is where "The Ratio" is defined.
+        if (int(tweet.replies) > 2*int(tweet.retweets)) and (int(tweet.replies) >= 1.5*int(tweet.likes)) and (int(tweet.replies) >= 5):
+            t = Tweet(name=tweet.fullname, handle=tweet.user, tweet_id=tweet.id, body=tweet.text, link="http://twitter.com/" + tweet.user + "/status/" + tweet.id, datetime=timezone(tweet.timestamp), replies=tweet.replies, rts=tweet.retweets, likes=tweet.likes)
+            tweets.append(t)
+
+    return [tweets, last_tweet_time]
+
+def moreTweets(request, username):
+    user = request.GET.get('username')
+    datetime = request.GET.get('date')
+    tweets_and_lasttime = scrapeTweets(user, datetime)
+    tweets = tweets_and_lasttime[0]
+    last_tweet_time = tweets_and_lasttime[1]
+
+    tweet_json = serialize('json', tweets, fields=('name', 'handle', 'tweet_id', 'body', 'link', 'datetime', 'replies', 'rts', 'likes'))
+    return JsonResponse([tweet_json, last_tweet_time], safe=False)
+
+def routeTweets(request, username, date=dt.date.today()):
+    if len(request.GET) == 1:
+        return tweetlist(request, username, date=dt.date.today())
+    else:
+        return moreTweets(request, username)

@@ -7,5 +7,6 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('<str:username>/', views.tweetlist, name='tweetlist'),
+    path('<str:username>/', views.routeTweets, name='tweetlist'),
+    path('<str:date>&<str:username>/', views.routeTweets, name='moretweets'),
 ]
