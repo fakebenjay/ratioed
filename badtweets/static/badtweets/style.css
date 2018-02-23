@@ -1,5 +1,7 @@
-body {
+html, body {
   font-family: 'Source Sans Pro', sans-serif;
+  overflow: scroll;
+  height: 100%;
 }
 
 div.w-100 {
@@ -16,10 +18,6 @@ div.w-100 {
     background: #F5ECDB;
 }
 
-div.w-30 {
-  text-align: center;
-}
-
 img#pic {
   max-height: 300px;
   max-width: 300px;
@@ -30,17 +28,23 @@ div#sidebox {
   top: 0px;
 }
 
-div.w-70 {
+div.sidebar {
+  background-color: #49A0EB;
+  min-height: 100%;
+  text-align: center;
+}
+
+div#tweet-div {
   max-height: 100vh;
   overflow: scroll;
 }
 
-div.w-70 > svg#loadscreen {
+div#tweet-div > svg#loadscreen {
   max-height: 500px;
   max-width: 500px;
 }
 
 div.more-tweets > svg#loadscreen {
-  max-height: 25px;
-  max-width: 25px;
+  max-height: 50px;
+  max-width: 50px;
 }
