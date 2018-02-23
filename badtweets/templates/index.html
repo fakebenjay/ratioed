@@ -8,23 +8,23 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
   </head>
   <body>
-    <div class="fl w-100">
+    <header class="w-100">
       <h1>Ratioed</h1>
-    </div>
-    <div id="main-window">
-      <div class="fl w-30 sidebar">
-        <div id="sidebox">
+    </header>
+    <main class="flex h-100 w-100" id="main-window">
+      <aside class="border fl w-30 h-100 pa3 relative sticky sidebar">
+        <div id="sidebox" class="pa3">
           <p>Enter a username and see all of their shittiest tweets!</p>
           @<input type="text" id="handle-entry" name="username"/>
           <input type="submit" id="submit" value="Submit" />
         </div>
-          <br></br>
-          <div id="error-window"></div>
-      </div>
-      <div class="fl w-70" id="tweet-div">
+        <br></br>
+        <div id="error-window"></div>
+      </aside>
+      <section class="pa3 fl w-100" id="tweet-div">
 
-      </div>
-    </div>
+      </section>
+    </main>
     <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
     <script src="static/badtweets/js/wrapper.js"></script>

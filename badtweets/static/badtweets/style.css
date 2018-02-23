@@ -1,13 +1,29 @@
 html, body {
   font-family: 'Source Sans Pro', sans-serif;
-  overflow: scroll;
-  height: 100%;
 }
 
-div.w-100 {
+header {
   text-align: center;
   background-color: #49A0EB;
   color: #ffffff;
+}
+
+aside {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 140px;
+          flex: 0 0 140px;
+}
+
+.sidebar {
+  min-width: 20%;
+  min-height: 100%;
+}
+
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  left: 0;
 }
 
 .tweet:nth-child(odd) {
@@ -23,28 +39,23 @@ img#pic {
   max-width: 300px;
 }
 
-div#sidebox {
-  position: sticky;
-  top: 0px;
-}
-
-div.sidebar {
+.sidebar {
   background-color: #49A0EB;
   min-height: 100%;
   text-align: center;
 }
 
-div#tweet-div {
+#tweet-div {
   max-height: 100vh;
   overflow: scroll;
 }
 
-div#tweet-div > svg#loadscreen {
+#tweet-div > svg#loadscreen {
   max-height: 500px;
   max-width: 500px;
 }
 
-div.more-tweets > svg#loadscreen {
+.more-tweets > svg#loadscreen {
   max-height: 50px;
   max-width: 50px;
 }

@@ -13,8 +13,8 @@ $(document).ready(function() {
 
     var username = $('#handle-entry').val()
 
-    if (!!document.querySelector('div#user-infowindow')) {
-      document.querySelector('div#user-infowindow').innerHTML = ''
+    if (!!document.querySelector('#user-infowindow')) {
+      document.querySelector('#user-infowindow').innerHTML = ''
     }
 
     if (username.length <= 0) {
@@ -28,7 +28,7 @@ $(document).ready(function() {
     e.preventDefault()
     var username = $('a#handle').text().substr(1)
     var dateIndicator = $('p#date-indicator').attr('title')
-    document.querySelector('div.more-tweets').innerHTML = smallLoadscreen
+    document.querySelector('.more-tweets').innerHTML = smallLoadscreen
     postTweets({date: dateIndicator, name: username})
   })
 })
