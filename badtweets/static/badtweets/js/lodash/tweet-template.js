@@ -5,13 +5,16 @@ function postTweets(paramsObj) {
   var profileFn = _.template(profileTemplate)
 
   var tweetDiv = document.getElementById('tweet-div')
+  var errorWindow = document.querySelector('#error-window')
 
+  errorWindow.innerHTML = ''
   if (!paramsObj.date) {tweetDiv.innerHTML = loadscreen}
 
   tweetCall(paramsObj, function(rawJSON) {
     if (!!rawJSON[0].error) {
-      document.querySelector('.w-30').innerHTML += `<br></br><em style='color:red;'>${rawJSON[0].error}</em>`
+      errorWindow.innerHTML = `<em style='color:red;'>${rawJSON[0].error}</em>`
     }
+
     else {
       if (rawJSON.length === 3) {
         if (!!$('div#user-infowindow')) {$('div#user-infowindow').remove()}
@@ -29,7 +32,7 @@ function postTweets(paramsObj) {
           'tweets': parseInt(user.tweets).toLocaleString(),
           'followers': parseInt(user.followers).toLocaleString(),
           'following': parseInt(user.following).toLocaleString(),
-          'date': date
+          'date': dateStringify(date)
         })
       } else {
         var tweets = JSON.parse(rawJSON[0])
@@ -45,7 +48,7 @@ function postTweets(paramsObj) {
           'replies': parseInt(tweets[i].fields.replies).toLocaleString(),
           'retweets': parseInt(tweets[i].fields.rts).toLocaleString(),
           'likes': parseInt(tweets[i].fields.likes).toLocaleString(),
-          'datetime': tweets[i].fields.datetime,
+          'datetime': dateStringify(tweets[i].fields.datetime),
           'link': `"${tweets[i].fields.link}"`
         })
       }

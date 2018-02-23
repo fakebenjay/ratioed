@@ -56,7 +56,7 @@ def scrapeTweets(username, date):
     tweets = []
     date = parser.parse(date).date()
     tweetscrape = twitterscraper.query_tweets("from%3A" + username, limit=100, poolsize=1, begindate=dt.date(2006,3,21), enddate=date+dt.timedelta(days=1))
-    last_tweet_time = tweetscrape[-1].timestamp
+    last_tweet_time = timezone(tweetscrape[-1].timestamp)
 
     for tweet in tweetscrape:
         ## This is where "The Ratio" is defined.
