@@ -44,14 +44,15 @@
       </div>
     </script>
     <script id="tweet-template" type="text/x-lodash-template">
-      <h3><%= name %></h3>
-      <small>@<%= handle %></small>
-      <p><%= body %></p>
-      <p>Replies:<%= replies %></p>
-      <p>Retweets:<%= retweets %></p>
-      <p>Likes:<%= likes %></p>
-      <small><a target="_blank" href=<%= link %>><%= datetime %></a></small>
-      <br>
+      <div class="tweet">
+        <h3><%= name %></h3>
+        <small>@<%= handle %></small>
+        <p><%= body %></p>
+        <p>Replies:<%= replies %></p>
+        <p>Retweets:<%= retweets %></p>
+        <p>Likes:<%= likes %></p>
+        <small><a target="_blank" href=<%= link %>><%= datetime %></a></small>
+      </div>
     </script>
     <script src="static/badtweets/js/lodash/tweet-template.js"></script>
   </body>

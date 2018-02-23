@@ -4,9 +4,16 @@ body {
 
 div.w-100 {
   text-align: center;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
+  background-color: #49A0EB;
+  color: #ffffff;
+}
+
+.tweet:nth-child(odd) {
+    background: #F8F4EF;
+}
+
+.tweet:nth-child(even) {
+    background: #F5ECDB;
 }
 
 div.w-30 {
@@ -19,9 +26,13 @@ img#pic {
 }
 
 div#sidebox {
-  position: -webkit-sticky;
   position: sticky;
-  top: 0;
+  top: 0px;
+}
+
+div.w-70 {
+  max-height: 100vh;
+  overflow: scroll;
 }
 
 div.w-70 > svg#loadscreen {
