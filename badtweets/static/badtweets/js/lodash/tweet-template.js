@@ -6,9 +6,10 @@ function postTweets(paramsObj) {
 
   var tweetDiv = document.getElementById('tweet-div')
   var errorWindow = document.querySelector('#error-window')
+  var entryBox = $('#handle-entry').val()
 
   errorWindow.innerHTML = ''
-  if (!paramsObj.date) {tweetDiv.innerHTML = loadscreen}
+  if (!paramsObj.date && entryBox !== '') {tweetDiv.innerHTML = loadscreen}
 
   tweetCall(paramsObj, function(rawJSON) {
     if (!!rawJSON[0].error) {
@@ -24,7 +25,7 @@ function postTweets(paramsObj) {
 
         tweetDiv.innerHTML = ''
 
-        document.querySelector('.w-30').innerHTML += profileFn({
+        document.querySelector('#sidebox').innerHTML += profileFn({
           'pic': `"${user.pic_ref}"`,
           'name': user.name,
           'link': `"${user.profile_link}"`,
@@ -32,7 +33,8 @@ function postTweets(paramsObj) {
           'tweets': parseInt(user.tweets).toLocaleString(),
           'followers': parseInt(user.followers).toLocaleString(),
           'following': parseInt(user.following).toLocaleString(),
-          'date': dateStringify(date)
+          'dateAttr': date,
+          'dateString': dateStringify(date)
         })
       } else {
         var tweets = JSON.parse(rawJSON[0])
@@ -52,12 +54,13 @@ function postTweets(paramsObj) {
           'link': `"${tweets[i].fields.link}"`
         })
       }
+      $('.more-tweets').remove()
       if (!paramsObj.date) {
-        tweetDiv.innerHTML += "<input type='submit' id='more-tweets' value='Load More Tweets' />"
+        tweetDiv.innerHTML += "<div class='more-tweets'><br><input type='submit' class='more-tweets-button' value='Load More Tweets' /></br></div>"
       } else {
-        $('input#more-tweets').remove()
-        $('p#date-indicator').text(date)
-        tweetDiv.innerHTML += "<input type='submit' id='more-tweets' value='Load More Tweets' />"
+        $('p#date-indicator').text(dateStringify(date))
+        $('p#date-indicator').attr('title', date)
+        tweetDiv.innerHTML += "<div class='more-tweets'><br><input type='submit' class='more-tweets-button' value='Load More Tweets' /></br></div>"
       }
     }
   })

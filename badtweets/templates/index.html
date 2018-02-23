@@ -5,6 +5,7 @@
     <title>Ratioed</title>
     <link rel="stylesheet" href="https://unpkg.com/tachyons@4.9.0/css/tachyons.min.css"/>
     <link rel="stylesheet" href="static/badtweets/style.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
   </head>
   <body>
     <div class="fl w-100">
@@ -12,11 +13,13 @@
       <h2>Twitter's Finest</h2>
     </div>
     <div class="fl w-30">
-      <p>Enter a username and see all of their shittiest tweets!</p>
-      @<input type="text" id="handle-entry" name="username"/>
-      <input type="submit" id="submit" value="Submit" />
-      <div id="error-window"></div>
-      <br></br>
+      <div id="sidebox">
+        <p>Enter a username and see all of their shittiest tweets!</p>
+        @<input type="text" id="handle-entry" name="username"/>
+        <input type="submit" id="submit" value="Submit" />
+      </div>
+        <br></br>
+        <div id="error-window"></div>
     </div>
     <div class="fl w-70" id="tweet-div">
 
@@ -27,8 +30,9 @@
     <script src="static/badtweets/js/index.js"></script>
 
     <script id="profile-template" type="text/x-lodash-template">
+      <br></br>
       <div id="user-infowindow">
-        <img src=<%= pic %> />
+        <img id="pic" src=<%= pic %> />
         <h2><%= name %></h2>
         <h3><a id="handle" target="_blank" href=<%= link %>>@<%= handle %></a></h3>
         <small>Tweets: <%= tweets %></small>
@@ -36,7 +40,7 @@
         <small>Following: <%= following %></small>
         <br>
         <p>Currently viewing all bad tweets since</p>
-        <p id="date-indicator" style="color: red;"><%= date %></p>
+        <p id="date-indicator" title=<%= dateAttr %> style="color: red;"><%= dateString %></p>
       </div>
     </script>
     <script id="tweet-template" type="text/x-lodash-template">

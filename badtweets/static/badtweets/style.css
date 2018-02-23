@@ -1,7 +1,35 @@
-div.fl.w-100 {
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+div.w-100 {
+  text-align: center;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
+div.w-30 {
   text-align: center;
 }
 
-div.fl.w-30 {
-  text-align: center;
+img#pic {
+  max-height: 300px;
+  max-width: 300px;
+}
+
+div#sidebox {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
+div.w-70 > svg#loadscreen {
+  max-height: 500px;
+  max-width: 500px;
+}
+
+div.more-tweets > svg#loadscreen {
+  max-height: 25px;
+  max-width: 25px;
 }

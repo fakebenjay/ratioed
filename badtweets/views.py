@@ -28,7 +28,7 @@ def tweetlist(request, username, date=dt.date.today()):
     date_string = str(date)
 
     if len(tweetscrape) == 0 or len(user.strip()) == 0:
-        return JsonResponse([{'error': "Sorry, we couldn't find any tweets. Even good ones."}], safe=False)
+        return JsonResponse([{'error': "We couldn't find any tweets for this user. Even good ones."}], safe=False)
     else:
         url = "http://twitter.com/" + tweetscrape[0].user
         f = urllib.request.urlopen(url)
