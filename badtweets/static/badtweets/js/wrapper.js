@@ -1,8 +1,8 @@
 function tweetCall(paramsObj, callback) {
   if (!!paramsObj.date) {
-    var url = `http://localhost:8000/badtweets/?date=${paramsObj.date}&username=${paramsObj.name}`
+    var url = `https://ratioed.herokuapp.com/badtweets/?date=${paramsObj.date}&username=${paramsObj.name}`
   } else {
-    var url = `http://localhost:8000/badtweets/?username=${paramsObj.name}`
+    var url = `https://ratioed.herokuapp.com/badtweets/?username=${paramsObj.name}`
   }
 
   fetch(url)
