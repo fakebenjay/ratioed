@@ -13,6 +13,6 @@ function tweetCall(paramsObj, callback) {
     .then(json => callback(json))
     .catch(err => {
       document.getElementById('tweet-div').innerHTML = ''
-      document.querySelector('#error-window').innerHTML = `<em style='color:green;'>Please try a valid user</em>`
+      document.querySelector('#error-window').innerHTML = `<em style='color:red;'>Please try a valid user</em>`
     })
 }

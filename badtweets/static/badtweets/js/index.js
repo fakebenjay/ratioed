@@ -18,7 +18,7 @@ $(document).ready(function() {
     }
 
     if (username.length <= 0) {
-      document.querySelector('#error-window').innerHTML = `<em style='color:green;'>Please enter a username</em>`
+      document.querySelector('#error-window').innerHTML = `<em style='color:red;'>Please enter a username</em>`
       return "oops"
     }
     postTweets({name: username})

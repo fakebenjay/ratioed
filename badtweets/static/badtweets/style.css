@@ -60,9 +60,11 @@ img#pic {
 #tweet-div > svg#loadscreen {
   max-height: 500px;
   max-width: 500px;
+  color: white;
 }
 
 .more-tweets > svg#loadscreen {
   max-height: 50px;
   max-width: 50px;
+  color: white;
 }
