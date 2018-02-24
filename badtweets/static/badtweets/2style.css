@@ -1,14 +1,15 @@
 html, body {
   font-family: 'Source Sans Pro', sans-serif;
-  background-color: #49A0EB;
-  color: #ffffff;
 }
 
 header {
   text-align: center;
+  background-color: #49A0EB;
+  color: #ffffff;
 }
 
 aside {
+  background-color: green;
   -webkit-box-flex: 0;
       -ms-flex: 0 0 140px;
           flex: 0 0 140px;
@@ -34,27 +35,12 @@ aside {
     background: #F5ECDB;
 }
 
-img#pic {
-  max-height: 300px;
-  max-width: 300px;
-}
-
-.sidebar {
-  background-color: #49A0EB;
-  min-height: 100%;
-  text-align: center;
-}
-
 #tweet-div {
   color: black;
 }
 
 .tweet {
-  margin-top: 0;
-  margin-bottom: 0;
-  padding-top: 16px;
-  padding-bottom: 16px;
-  padding-left: 16px;
+  font-size: 0;
 }
 
 #tweet-div > svg#loadscreen {

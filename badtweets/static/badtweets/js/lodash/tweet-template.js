@@ -13,7 +13,7 @@ function postTweets(paramsObj) {
 
   tweetCall(paramsObj, function(rawJSON) {
     if (!!rawJSON[0].error) {
-      errorWindow.innerHTML = `<em style='color:red;'>${rawJSON[0].error}</em>`
+      errorWindow.innerHTML = `<em style='color:green;'>${rawJSON[0].error}</em>`
     }
 
     else {
