@@ -62,6 +62,12 @@ function postTweets(paramsObj) {
         })
       }
 
+      // Lord Donald breaks on "Load More Tweets" if user isn't defined, because 'user' isn't in those API calls
+      if (document.querySelector('#user-infowindow')) {
+        var user = document.querySelector('a#handle').innerText.replace('@', '')
+      }
+
+      // For Lord Donald
       if (tweetDiv.children.length < 2) {
         if (user.handle.toUpperCase() === 'REALDONALDTRUMP' || user.handle.toUpperCase() === 'POTUS') {
           goodError.innerHTML = "Ratioed was unable to find ANY bad tweets. Prosecute??"
