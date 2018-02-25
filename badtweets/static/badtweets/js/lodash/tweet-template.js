@@ -63,8 +63,8 @@ function postTweets(paramsObj) {
       }
 
       // Lord Donald breaks on "Load More Tweets" if user isn't defined, because 'user' isn't in those API calls
-      if (document.querySelector('#user-infowindow')) {
-        var user = document.querySelector('a#handle').innerText.replace('@', '')
+      if (!user) {
+        var user = {'handle': document.querySelector('a#handle').innerText.replace('@', '')}
       }
 
       // For Lord Donald
