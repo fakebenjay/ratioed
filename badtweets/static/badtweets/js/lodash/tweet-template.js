@@ -17,11 +17,11 @@ function postTweets(paramsObj) {
     loadDiv.innerHTML = `<h1>FETCHING YOU HOT FRESH TWEETS WITH HOT STALE TAKES</h1>${loadscreen}`
   }
 
-  tweetCall(paramsObj, function(rawJSON) {
-    if (!!goodError) {
-      goodError.innerHTML = ''
-    }
+  if (!!goodError) {
+    goodError.innerHTML = ''
+  }
 
+  tweetCall(paramsObj, function(rawJSON) {
     if (!!rawJSON[0].error) {
       loadDiv.innerHTML = ''
       errorWindow.innerHTML = `<em style='color:red;'>${rawJSON[0].error}</em>`
