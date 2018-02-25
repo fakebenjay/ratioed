@@ -59,6 +59,7 @@ function postTweets(paramsObj) {
           'link': `"${tweets[i].fields.link}"`
         })
       }
+
       if (tweetDiv.innerHTML === '') {
         if (user.handle.toUpperCase() === 'REALDONALDTRUMP' || user.handle.toUpperCase() === 'POTUS') {
           tweetDiv.innerHTML = "Ratioed was unable to find ANY bad tweets. Prosecute?"
@@ -66,6 +67,7 @@ function postTweets(paramsObj) {
           tweetDiv.innerHTML = "Congratulations! All of your tweets are good! So far..."
         }
       }
+      
       $('.more-tweets').remove()
       if (!paramsObj.date) {
         tweetDiv.innerHTML += "<div class='more-tweets'><br><input type='submit' class='more-tweets-button' value='Load More Tweets' /></br></div>"
