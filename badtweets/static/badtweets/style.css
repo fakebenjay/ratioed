@@ -35,8 +35,8 @@ aside {
 }
 
 img#pic {
-  max-height: 300px;
-  max-width: 300px;
+  max-height: 20%;
+  max-width: 20%;
 }
 
 .sidebar {
@@ -61,6 +61,7 @@ img#pic {
   max-height: 500px;
   max-width: 500px;
   color: white;
+  text-align: center;
 }
 
 .more-tweets > svg#loadscreen {
