@@ -62,7 +62,7 @@ function postTweets(paramsObj) {
         })
       }
 
-      if (tweetDiv.innerHTML === '') {
+      if (tweetDiv.children.length < 2) {
         if (user.handle.toUpperCase() === 'REALDONALDTRUMP' || user.handle.toUpperCase() === 'POTUS') {
           goodError.innerHTML = "Ratioed was unable to find ANY bad tweets. Prosecute??"
         } else {
