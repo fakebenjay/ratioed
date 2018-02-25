@@ -24,6 +24,10 @@ aside {
   padding-top: 0px;
 }
 
+section {
+  text-align: center;
+}
+
 main {
   padding-top: 0px;
 }
@@ -75,7 +79,7 @@ img#pic {
   max-height: 500px;
   max-width: 500px;
   color: white;
-  align-content: center;
+  text-align: center;
   font-family: "vag-rundschrift-d",sans-serif;
   -webkit-text-stroke-width: 0.1px;
   -webkit-text-stroke-color: black;
