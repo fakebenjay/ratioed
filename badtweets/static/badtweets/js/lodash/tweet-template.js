@@ -8,17 +8,14 @@ function postTweets(paramsObj) {
   var loadDiv = document.getElementById('load-div')
   var errorWindow = document.querySelector('#error-window')
   var entryBox = $('#handle-entry').val()
-  var goodError = document.querySelector('div.good-tweet-error')
+  var goodError = document.querySelector('div#good-tweet-error')
 
   errorWindow.innerHTML = ''
+  goodError.innerHTML = ''
 
   if (!paramsObj.date && entryBox !== '') {
     tweetDiv.innerHTML = ''
     loadDiv.innerHTML = `<h1>FETCHING YOU HOT FRESH TWEETS WITH HOT STALE TAKES</h1>${loadscreen}`
-  }
-
-  if (!!goodError) {
-    goodError.innerHTML = ''
   }
 
   tweetCall(paramsObj, function(rawJSON) {
@@ -67,9 +64,9 @@ function postTweets(paramsObj) {
 
       if (tweetDiv.innerHTML === '') {
         if (user.handle.toUpperCase() === 'REALDONALDTRUMP' || user.handle.toUpperCase() === 'POTUS') {
-          tweetDiv.innerHTML = "<div class='good-tweet-error'>Ratioed was unable to find ANY bad tweets. Prosecute??</div>"
+          goodError.innerHTML = "Ratioed was unable to find ANY bad tweets. Prosecute??"
         } else {
-          tweetDiv.innerHTML = "<div class='good-tweet-error'>Congratulations! All of your tweets are good! So far...</div>"
+          goodError.innerHTML = "Congratulations! All of your tweets are good! So far..."
         }
       }
 
