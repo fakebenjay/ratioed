@@ -12,7 +12,11 @@ function tweetCall(paramsObj, callback) {
     })
     .then(json => callback(json))
     .catch(err => {
-      document.getElementById('tweet-div').innerHTML = ''
-      document.querySelector('#error-window').innerHTML = `<em style='color:red;'>Please try a valid user</em>`
+      document.getElementById('load-div').innerHTML = ''
+      if (!!$('#user-infowindow').html()) {
+        document.querySelector('#error-window').innerHTML = `<em style='color:red;'>This user has run out of tweets</em>`
+      } else {
+        document.querySelector('#error-window').innerHTML = `<em style='color:red;'>Please try a valid user</em>`
+      }
     })
 }
