@@ -111,3 +111,26 @@ div#good-tweet-error {
   -webkit-text-stroke-color: black;
   font-size: 15pt;
 }
+
+.submit {
+  background:transparent;
+
+  color:#37F;
+  border:none;
+  padding:10px 30px;
+  border-radius:20px;
+  box-shadow:0 0 0 1px #37F inset;
+  outline:none;
+  font-weight:normal;
+  -webkit-transition:all 200ms ease-out;
+}
+
+.submit:hover {
+  box-shadow:0 0 0 3px #37F inset;
+  -webkit-transition:none;
+}
+
+.submit:active {
+  color:#EEE;
+  background: #37F;
+}

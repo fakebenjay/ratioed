@@ -17,7 +17,7 @@
         <div id="sidebox" class="pa3">
           <p>Enter a username and see all of their shittiest tweets!</p>
           @<input type="text" id="handle-entry" name="username"/>
-          <input type="submit" id="submit" value="Submit" />
+          <input class="submit" type="submit" id="submit" value="Submit" />
           <br>
           <div id="error-window"></div>
           <br>
@@ -41,6 +41,7 @@
         <small>Tweets: <%= tweets %></small>
         <br/>
         <small>Followers: <%= followers %></small>
+        <br/>
         <small>Following: <%= following %></small>
         <br>
         <p>Currently viewing all bad tweets since</p>

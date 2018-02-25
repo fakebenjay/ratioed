@@ -78,11 +78,11 @@ function postTweets(paramsObj) {
 
       $('.more-tweets').remove()
       if (!paramsObj.date) {
-        tweetDiv.innerHTML += "<div class='more-tweets'><br><input type='submit' class='more-tweets-button' value='Load More Tweets' /></br></div>"
+        tweetDiv.innerHTML += "<div class='more-tweets submit'><br><input type='submit' class='more-tweets-button' value='Load More Tweets' /></br></div>"
       } else {
         $('p#date-indicator').text(dateStringify(date))
         $('p#date-indicator').attr('title', date)
-        tweetDiv.innerHTML += "<div class='more-tweets'><br><input type='submit' class='more-tweets-button' value='Load More Tweets' /></br></div>"
+        tweetDiv.innerHTML += "<div class='more-tweets submit'><br><input type='submit' class='more-tweets-button' value='Load More Tweets' /></br></div>"
       }
     }
   })
