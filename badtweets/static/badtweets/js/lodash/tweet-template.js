@@ -8,6 +8,7 @@ function postTweets(paramsObj) {
   var loadDiv = document.getElementById('load-div')
   var errorWindow = document.querySelector('#error-window')
   var entryBox = $('#handle-entry').val()
+  var goodError = document.querySelector('div.good-tweet-error')
 
   errorWindow.innerHTML = ''
 
@@ -17,10 +18,14 @@ function postTweets(paramsObj) {
   }
 
   tweetCall(paramsObj, function(rawJSON) {
-    if (!!rawJSON[0].error) {
-      errorWindow.innerHTML = `<em style='color:red;'>${rawJSON[0].error}</em>`
+    if (!!goodError) {
+      goodError.innerHTML = ''
     }
 
+    if (!!rawJSON[0].error) {
+      loadDiv.innerHTML = ''
+      errorWindow.innerHTML = `<em style='color:red;'>${rawJSON[0].error}</em>`
+    }
     else {
       if (rawJSON.length === 3) {
         if (!!$('#user-infowindow')) {$('#user-infowindow').remove()}
