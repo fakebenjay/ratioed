@@ -10,7 +10,7 @@ function postTweets(paramsObj) {
   var entryBox = $('#handle-entry').val()
 
   errorWindow.innerHTML = ''
-  
+
   if (!paramsObj.date && entryBox !== '') {
     tweetDiv.innerHTML = ''
     loadDiv.innerHTML = `<h1>FETCHING YOU HOT FRESH TWEETS WITH HOT STALE TAKES</h1>${loadscreen}`
@@ -58,6 +58,13 @@ function postTweets(paramsObj) {
           'datetime': dateStringify(tweets[i].fields.datetime),
           'link': `"${tweets[i].fields.link}"`
         })
+      }
+      if (tweetDiv.innerHTML === '') {
+        if (user.handle.toUpperCase() === 'REALDONALDTRUMP' || user.handle.toUpperCase() === 'POTUS') {
+          tweetDiv.innerHTML = "Ratioed was unable to find ANY bad tweets. Prosecute?"
+        } else {
+          tweetDiv.innerHTML = "Congratulations! All of your tweets are good! So far..."
+        }
       }
       $('.more-tweets').remove()
       if (!paramsObj.date) {

@@ -85,8 +85,8 @@ img#pic {
 }
 
 #load-div > svg#loadscreen{
-  max-height: 50%;
-  max-width: 50%;
+  max-height: 20%;
+  max-width: 40%;
 }
 
 .more-tweets > svg#loadscreen {
@@ -97,4 +97,5 @@ img#pic {
 .tweet > h3 {
   padding-top: 0px;
   padding-bottom: 5px;
+  text-align: left;
 }
