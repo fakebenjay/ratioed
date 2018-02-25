@@ -62,12 +62,12 @@ function postTweets(paramsObj) {
 
       if (tweetDiv.innerHTML === '') {
         if (user.handle.toUpperCase() === 'REALDONALDTRUMP' || user.handle.toUpperCase() === 'POTUS') {
-          tweetDiv.innerHTML = "Ratioed was unable to find ANY bad tweets. Prosecute?"
+          tweetDiv.innerHTML = "<div class='good-tweet-error'>Ratioed was unable to find ANY bad tweets. Prosecute??</div>"
         } else {
-          tweetDiv.innerHTML = "Congratulations! All of your tweets are good! So far..."
+          tweetDiv.innerHTML = "<div class='good-tweet-error'>Congratulations! All of your tweets are good! So far...</div>"
         }
       }
-      
+
       $('.more-tweets').remove()
       if (!paramsObj.date) {
         tweetDiv.innerHTML += "<div class='more-tweets'><br><input type='submit' class='more-tweets-button' value='Load More Tweets' /></br></div>"

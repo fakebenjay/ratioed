@@ -35,6 +35,11 @@ main {
 .sidebar {
   min-width: 20%;
   min-height: 100%;
+  padding-top: 0;
+}
+
+.main-section {
+  padding-top: 0;
 }
 
 .sticky {
@@ -73,6 +78,7 @@ img#pic {
   padding-top: 8px;
   padding-bottom: 16px;
   padding-left: 16px;
+  text-align: left;
 }
 
 #load-div {
@@ -97,5 +103,4 @@ img#pic {
 .tweet > h3 {
   padding-top: 0px;
   padding-bottom: 5px;
-  text-align: left;
 }
