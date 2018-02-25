@@ -75,7 +75,7 @@ img#pic {
   max-height: 500px;
   max-width: 500px;
   color: white;
-  text-align: center;
+  align-content: center;
   font-family: "vag-rundschrift-d",sans-serif;
   -webkit-text-stroke-width: 0.1px;
   -webkit-text-stroke-color: black;
