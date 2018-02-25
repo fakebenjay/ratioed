@@ -10,7 +10,11 @@ function postTweets(paramsObj) {
   var entryBox = $('#handle-entry').val()
 
   errorWindow.innerHTML = ''
-  if (!paramsObj.date && entryBox !== '') {loadDiv.innerHTML = `<h1>FETCHING YOU HOT FRESH TWEETS WITH HOT STALE TAKES</h1>${loadscreen}`}
+  
+  if (!paramsObj.date && entryBox !== '') {
+    tweetDiv.innerHTML = ''
+    loadDiv.innerHTML = `<h1>FETCHING YOU HOT FRESH TWEETS WITH HOT STALE TAKES</h1>${loadscreen}`
+  }
 
   tweetCall(paramsObj, function(rawJSON) {
     if (!!rawJSON[0].error) {
@@ -25,7 +29,6 @@ function postTweets(paramsObj) {
         var date = rawJSON[2]
 
         loadDiv.innerHTML = ''
-        tweetDiv.innerHTML = ''
 
         document.querySelector('#sidebox').innerHTML += profileFn({
           'pic': `"${user.pic_ref}"`,
