@@ -55,7 +55,7 @@ def tweetlist(request, username, date=dt.date.today()):
 def scrapeTweets(username, date):
     tweets = []
     date = parser.parse(date).date()
-    tweetscrape = twitterscraper.query_tweets("from%3A" + username, limit=150, poolsize=1, begindate=dt.date(2006,3,21), enddate=date+dt.timedelta(days=1))
+    tweetscrape = twitterscraper.query_tweets("from%3A" + username, limit=200, poolsize=1, begindate=dt.date(2006,3,21), enddate=date+dt.timedelta(days=1))
     last_tweet_time = timezone(tweetscrape[-1].timestamp)
 
     for tweet in tweetscrape:
