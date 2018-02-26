@@ -68,7 +68,7 @@ def scrapeTweets(username, date):
 
 def moreTweets(request, username):
     user = request.GET.get('username')
-    datetime = str(parser.parse(request.GET.get('date')).date() - dt.timedelta(days=1))
+    datetime = str(parser.parse(request.GET.get('date')).date() + dt.timedelta(days=1))
     tweets_and_lasttime = scrapeTweets(user, datetime)
     tweets = tweets_and_lasttime[0]
     last_tweet_time = tweets_and_lasttime[1]

@@ -49,7 +49,6 @@ function postTweets(paramsObj) {
       }
 
       for (i=0; i<tweets.length; i++) {
-        console.log(i)
         tweetDiv.innerHTML += templateFn({
           'handle': tweets[i].fields.handle,
           'name': tweets[i].fields.name,
