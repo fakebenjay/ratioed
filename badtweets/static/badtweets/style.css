@@ -100,9 +100,11 @@ img#pic {
   max-width: 50px;
 }
 
-.tweet > h3 {
+.tweet > h3, .tweet > h4 {
   padding-top: 0px;
-  padding-bottom: 5px;
+  padding-bottom: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 div#good-tweet-error {
