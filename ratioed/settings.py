@@ -28,7 +28,9 @@ DEBUG = True
 ALLOWED_HOSTS = [
     'ratioed.herokuapp.com',
     'www.ratioed.io',
-    'www.ratioed.men'
+    'www.ratioed.men',
+    'ratioed.io',
+    'ratioed.men'
 ]
 
 
