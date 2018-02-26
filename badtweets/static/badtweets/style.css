@@ -4,6 +4,10 @@ html, body {
   color: #ffffff;
 }
 
+p {
+  word-wrap: break-word;
+}
+
 header {
   text-align: center;
   font-family: "vag-rundschrift-d",sans-serif;
