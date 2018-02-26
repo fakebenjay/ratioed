@@ -161,6 +161,6 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 CORS_ORIGIN_ALLOW_ALL = False
 
 CORS_ORIGIN_WHITELIST = (
-    'https//www.ratioed.io',
-    'https//www.ratioed.men'
+    'https://www.ratioed.io',
+    'https://www.ratioed.men'
 )
