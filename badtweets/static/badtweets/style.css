@@ -138,10 +138,10 @@ div#good-tweet-error {
 .text-input {
   position: relative;
   margin-top: 50px;
+  width: 100%;
 }
 .text-input input[type="text"] {
   display: inline-block;
-  width: 500px;
   height: 40px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
