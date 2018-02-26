@@ -4,6 +4,7 @@ bs4==0.0.1
 certifi==2018.1.18
 chardet==3.0.4
 coala-utils==0.5.1
+corsheaders==2.1.0
 DateTime==4.2
 decorator==4.2.1
 dj-database-url==0.4.2
