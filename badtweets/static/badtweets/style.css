@@ -1,5 +1,5 @@
 html, body {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'helvetica neue', helvetica, sans-serif;
   background-color: #49A0EB;
   color: #ffffff;
 }
@@ -39,7 +39,7 @@ main {
 }
 
 #main-window {
-  text-align: center;
+  margin: 0 auto;
 }
 
 .main-section {
