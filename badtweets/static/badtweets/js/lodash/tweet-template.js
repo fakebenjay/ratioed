@@ -9,6 +9,9 @@ function postTweets(paramsObj) {
   var errorWindow = document.querySelector('#error-window')
   var entryBox = $('#handle-entry').val()
   var goodError = document.querySelector('div#good-tweet-error')
+  var tweetIDs = Array.prototype.map.call(tweetDiv.children, function(t) {
+    if (t.className === "tweet") {return t.id}
+  })
 
   errorWindow.innerHTML = ''
   goodError.innerHTML = ''
@@ -49,17 +52,19 @@ function postTweets(paramsObj) {
       }
 
       for (i=0; i<tweets.length; i++) {
-        tweetDiv.innerHTML += templateFn({
-          'handle': tweets[i].fields.handle,
-          'tweetID': tweets[i].fields.tweet_id,
-          'name': tweets[i].fields.name,
-          'body': tweets[i].fields.body,
-          'replies': parseInt(tweets[i].fields.replies).toLocaleString(),
-          'retweets': parseInt(tweets[i].fields.rts).toLocaleString(),
-          'likes': parseInt(tweets[i].fields.likes).toLocaleString(),
-          'datetime': dateStringify(tweets[i].fields.datetime),
-          'link': `"${tweets[i].fields.link}"`
-        })
+        if (!tweetIDs.includes(tweets[i].tweet_id)) {
+          tweetDiv.innerHTML += templateFn({
+            'handle': tweets[i].fields.handle,
+            'tweetID': tweets[i].fields.tweet_id,
+            'name': tweets[i].fields.name,
+            'body': tweets[i].fields.body,
+            'replies': parseInt(tweets[i].fields.replies).toLocaleString(),
+            'retweets': parseInt(tweets[i].fields.rts).toLocaleString(),
+            'likes': parseInt(tweets[i].fields.likes).toLocaleString(),
+            'datetime': dateStringify(tweets[i].fields.datetime),
+            'link': `"${tweets[i].fields.link}"`
+          })
+        }
       }
 
       // Lord Donald breaks on "Load More Tweets" if user isn't defined, because 'user' isn't in those API calls
