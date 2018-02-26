@@ -53,11 +53,15 @@
     <script id="tweet-template" type="text/x-lodash-template">
       <div class="tweet">
         <h3><%= name %></h3>
-        <small>@<%= handle %></small>
+        <h4>@<%= handle %></h4>
         <p><%= body %></p>
-        <p>Replies: <%= replies %></p>
-        <p>Retweets: <%= retweets %></p>
-        <p>Likes: <%= likes %></p>
+        <br>
+        <small>Replies: <%= replies %></small>
+        <br>
+        <small>Retweets: <%= retweets %></small>
+        <br>
+        <small>Likes: <%= likes %></small>
+        <br>
         <small><a target="_blank" href=<%= link %>><%= datetime %></a></small>
       </div>
     </script>
