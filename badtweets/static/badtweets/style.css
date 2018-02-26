@@ -79,6 +79,7 @@ img#pic {
 #about {
   color: white;
   padding: 0 auto;
+  text-align: left;
 }
 
 .tweet {
