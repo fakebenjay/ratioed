@@ -19,7 +19,7 @@ def all_tweets(username, date=dt.date.today()-dt.timedelta(days=1)):
     counter = 1
     array = []
 
-    for tweet in twitterscraper.query_tweets("from%3A" + username, limit=150, poolsize=1, begindate=dt.date(2006,3,21), enddate=date):
+    for tweet in twitterscraper.query_tweets("from%3A" + username, limit=150, poolsize=1, begindate=dt.date(2006,3,21), enddate=dt.datetime.now()):
         array.append(tweet.timestamp)
         counter += 1
 
