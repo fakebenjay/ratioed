@@ -52,7 +52,6 @@ function postTweets(paramsObj) {
       }
 
       for (i=0; i<tweets.length; i++) {
-        debugger
         if (!tweetIDs.includes(tweets[i].fields.tweet_id)) {
           tweetDiv.innerHTML += templateFn({
             'handle': tweets[i].fields.handle,
