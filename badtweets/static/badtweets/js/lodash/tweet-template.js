@@ -51,6 +51,7 @@ function postTweets(paramsObj) {
       for (i=0; i<tweets.length; i++) {
         tweetDiv.innerHTML += templateFn({
           'handle': tweets[i].fields.handle,
+          'tweetID': tweets[i].fields.tweet_id,
           'name': tweets[i].fields.name,
           'body': tweets[i].fields.body,
           'replies': parseInt(tweets[i].fields.replies).toLocaleString(),
