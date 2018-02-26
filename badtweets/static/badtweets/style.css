@@ -76,6 +76,11 @@ img#pic {
   color: black;
 }
 
+#about {
+  color: white;
+  padding: 0 auto;
+}
+
 .tweet {
   margin-top: 0;
   margin-bottom: 0;
