@@ -3,7 +3,6 @@ from django.http import HttpResponse, JsonResponse
 import twitterscraper
 import datetime as dt
 from dateutil import tz, parser
-from IPython import embed
 from .models import Tweet, User
 from bs4 import BeautifulSoup
 import urllib.request
@@ -55,18 +54,7 @@ def tweetlist(request, username, date=dt.date.today()):
 def scrapeTweets(username, date):
     tweets = []
     date = parser.parse(date).date()
-    limit = 250
-    killswitch = False
-    tweetscrape = None
-
-    while killswitch == False:
-        tweetscrape = twitterscraper.query_tweets("from%3A" + username, limit=limit, poolsize=1, begindate=dt.date(2006,3,21), enddate=date+dt.timedelta(days=1))
-
-        if (tweetscrape[0].timestamp.date() == tweetscrape[-1].timestamp.date()+dt.timedelta(days=2) and len(tweetscrape) >= limit):
-            killswitch = True
-        else:
-            limit += 250
-
+    tweetscrape = twitterscraper.query_tweets("from%3A" + username, limit=400, poolsize=1, begindate=dt.date(2006,3,21), enddate=date+dt.timedelta(days=1))
     last_tweet_time = timezone(tweetscrape[-1].timestamp)
 
     for tweet in tweetscrape:

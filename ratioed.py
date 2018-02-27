@@ -15,14 +15,14 @@ def call_tweets(username, date=dt.date.today()):
     if bad_counter == 0:
         print ("All of your tweets are good! Good job!")
 
-def all_tweets(username, date=dt.date.today()-dt.timedelta(days=1)):
+def all_tweets(username, date=dt.date.today()-dt.timedelta(days=2)):
     counter = 1
     array = []
 
-    for tweet in twitterscraper.query_tweets("from%3A" + username, limit=150, poolsize=1, begindate=dt.date(2006,3,21), enddate=dt.datetime.now()):
-        array.append(tweet.timestamp)
+    for tweet in twitterscraper.query_tweets("from%3A" + username, limit=400, poolsize=1, begindate=date-dt.timedelta(days=2), enddate=date):
+        print (tweet.timestamp)
         counter += 1
 
     print (counter)
 
-all_tweets('jpodhoretz')
+all_tweets('united')
