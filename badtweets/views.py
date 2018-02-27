@@ -57,7 +57,7 @@ def scrapeTweets(username, date):
     tweetscrape = twitterscraper.query_tweets("from%3A" + username, limit=400, poolsize=1, begindate=dt.date(2006,3,21), enddate=date+dt.timedelta(days=1))
 
     if (tweetscrape[0].timestamp.date() == tweetscrape[-1].timestamp.date()):
-        last_tweet_time = timezone(tweetscrape[-1].timestamp - dt.timedelta(days=1))
+        last_tweet_time = timezone(tweetscrape[-1].timestamp - dt.timedelta(days=2))
     else:
         last_tweet_time = timezone(tweetscrape[-1].timestamp)
 
