@@ -73,9 +73,11 @@ function postTweets(paramsObj) {
       }
 
       // For Lord Donald
-      if (tweetDiv.children.length < 1) {
+      if (!document.querySelector('.tweet')) {
         if (user.handle.toUpperCase() === 'REALDONALDTRUMP' || user.handle.toUpperCase() === 'POTUS') {
           goodError.innerHTML = "Ratioed claims they were unable to find ANY bad tweets!! Prosecute?"
+        } else if (verifyDateString(date)) {
+          goodError.innerHTML = "That's all the tweets!"
         } else {
           goodError.innerHTML = "Congratulations! All of your tweets are good...so far"
         }

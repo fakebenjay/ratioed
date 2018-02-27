@@ -5,21 +5,15 @@ function dateStringify(string) {
   return date.toLocaleString('en-US', {weekday:'short', month:'short', day:'numeric', year:'numeric', hour:'numeric', minute:'numeric'})
 }
 
-// function verifyDateString(string) {
-//   date = new Date(string)
-//   var stringDate = date.toLocaleString('en-US', {weekday:'short', month:'short', day:'numeric', year:'numeric', hour:'numeric', minute:'numeric'})
-//
-//   if (stringDate === $('p#date-indicator').text()) {
-//     date.setDate(date.getDate() - 1)
-//     stringDate = date.toLocaleString('en-US', {weekday:'short', month:'short', day:'numeric', year:'numeric', hour:'numeric', minute:'numeric'})
-//   }
-//
-//   return stringDate
-// }
+function verifyDateString(string) {
+  date = new Date(string)
+  var stringDate = date.toLocaleString('en-US', {weekday:'short', month:'short', day:'numeric', year:'numeric', hour:'numeric', minute:'numeric'})
 
-function verifyDateAttr(string) {
-  debugger
-  return string
+  if (stringDate === $('p#date-indicator').text()) {
+    return true
+  } else {
+    return false
+  }
 }
 
 $(document).ready(function() {
