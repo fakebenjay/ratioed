@@ -76,8 +76,9 @@ function postTweets(paramsObj) {
       if (!document.querySelector('.tweet')) {
         if (user.handle.toUpperCase() === 'REALDONALDTRUMP' || user.handle.toUpperCase() === 'POTUS') {
           goodError.innerHTML = "Ratioed claims they were unable to find ANY bad tweets!! Prosecute?"
-        } else if (verifyDateString(date)) {
+        } else if (verifyDateString(date) && rawJSON.length !== 3) {
           goodError.innerHTML = "That's all the tweets!"
+          $('div.more-tweets').remove()
         } else {
           goodError.innerHTML = "Congratulations! All of your tweets are good...so far"
         }
