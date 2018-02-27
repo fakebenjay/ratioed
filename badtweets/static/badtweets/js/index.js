@@ -2,7 +2,14 @@ var loadscreen = `<svg id="loadscreen" xmlns="http://www.w3.org/2000/svg" viewBo
 
 function dateStringify(string) {
   date = new Date(string)
-  return date.toLocaleString('en-US', {weekday:'short', month:'short', day:'numeric', year:'numeric', hour:'numeric', minute:'numeric'})
+  var stringDate = date.toLocaleString('en-US', {weekday:'short', month:'short', day:'numeric', year:'numeric', hour:'numeric', minute:'numeric'})
+
+  if (stringDate == $('p#date-indicator').text()) {
+    date.setDate(date.getDate() - 1)
+    stringDate = date.toLocaleString('en-US', {weekday:'short', month:'short', day:'numeric', year:'numeric', hour:'numeric', minute:'numeric'})
+  }
+
+  return stringDate
 }
 
 $(document).ready(function() {
