@@ -2,14 +2,24 @@ var loadscreen = `<svg id="loadscreen" xmlns="http://www.w3.org/2000/svg" viewBo
 
 function dateStringify(string) {
   date = new Date(string)
-  var stringDate = date.toLocaleString('en-US', {weekday:'short', month:'short', day:'numeric', year:'numeric', hour:'numeric', minute:'numeric'})
+  return date.toLocaleString('en-US', {weekday:'short', month:'short', day:'numeric', year:'numeric', hour:'numeric', minute:'numeric'})
+}
 
-  if (stringDate == $('p#date-indicator').text()) {
-    date.setDate(date.getDate() - 1)
-    stringDate = date.toLocaleString('en-US', {weekday:'short', month:'short', day:'numeric', year:'numeric', hour:'numeric', minute:'numeric'})
-  }
+// function verifyDateString(string) {
+//   date = new Date(string)
+//   var stringDate = date.toLocaleString('en-US', {weekday:'short', month:'short', day:'numeric', year:'numeric', hour:'numeric', minute:'numeric'})
+//
+//   if (stringDate === $('p#date-indicator').text()) {
+//     date.setDate(date.getDate() - 1)
+//     stringDate = date.toLocaleString('en-US', {weekday:'short', month:'short', day:'numeric', year:'numeric', hour:'numeric', minute:'numeric'})
+//   }
+//
+//   return stringDate
+// }
 
-  return stringDate
+function verifyDateAttr(string) {
+  debugger
+  return string
 }
 
 $(document).ready(function() {

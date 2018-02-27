@@ -58,6 +58,8 @@ def scrapeTweets(username, date):
 
     if (tweetscrape[0].timestamp.date() == tweetscrape[-1].timestamp.date()):
         last_tweet_time = timezone(tweetscrape[-1].timestamp - dt.timedelta(days=2))
+    elif (tweetscrape[0].timestamp.date() == tweetscrape[-1].timestamp.date()+dt.timedelta(days=1)):
+        last_tweet_time = timezone(tweetscrape[-1].timestamp - dt.timedelta(days=1))
     else:
         last_tweet_time = timezone(tweetscrape[-1].timestamp)
 
