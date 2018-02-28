@@ -41,8 +41,4 @@ $(document).ready(function() {
     document.querySelector('.more-tweets').innerHTML = loadscreen
     postTweets({date: dateIndicator, name: username})
   })
-
-  $(document.body).on('click', 'h1#title', function(e) {
-    window.location.reload()
-  })
 })
