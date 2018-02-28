@@ -93,6 +93,7 @@ function postTweets(paramsObj) {
         tweetDiv.innerHTML += "<div class='more-tweets'><br><input type='submit' class='more-tweets-button submit' value='Load More Tweets' /></br></div>"
       }
     }
+    $('input#submit').prop('disabled', false)
   })
 }
 

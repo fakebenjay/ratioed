@@ -12,6 +12,7 @@ function tweetCall(paramsObj, callback) {
     })
     .then(json => callback(json))
     .catch(err => {
+      // $('input#submit').prop('disabled', false)
       document.getElementById('load-div').innerHTML = ''
       if (!!$('#user-infowindow').html()) {
         document.querySelector('#error-window').innerHTML = `<em style='color:red;'>This user has run out of tweets</em>`

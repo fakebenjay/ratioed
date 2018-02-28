@@ -19,6 +19,7 @@ function verifyDateString(string) {
 $(document).ready(function() {
   $(document.body).on('click', '#submit', function(e) {
     e.preventDefault()
+    $('input#submit').prop('disabled', true)
 
     var username = $('#handle-entry').val()
 
