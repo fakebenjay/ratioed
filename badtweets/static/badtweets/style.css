@@ -153,6 +153,11 @@ div#good-tweet-error {
   background: #37F;
 }
 
+.submit:disabled {
+  color:#3F3F3F;
+  background: #DDDDDD;
+}
+
 .text-input {
   position: relative;
   width: 100%;
