@@ -29,6 +29,7 @@ $(document).ready(function() {
 
     if (username.length <= 0) {
       document.querySelector('#error-window').innerHTML = `<em style='color:red;'>Please enter a username</em>`
+      $('input#submit').prop('disabled', false)
       return "oops"
     }
     postTweets({name: username})
