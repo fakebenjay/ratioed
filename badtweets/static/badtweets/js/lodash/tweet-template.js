@@ -73,7 +73,7 @@ function postTweets(paramsObj) {
           tweetDiv.innerHTML += tweet
 
           //Gold star extra good tweets
-          if (replies >= 175 && replies >= 2*retweets && replies >= 1.5*likes) {
+          if ((replies >= 175 && replies >= 2*retweets && replies >= 1.5*likes) || (ratio >= 15)) {
             var tweetNode = document.querySelector(`[id = "${tweets[i].fields.tweet_id}"]`)
             tweetNode.className += " gold-tweet"
           }
