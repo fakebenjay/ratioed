@@ -73,7 +73,7 @@ function postTweets(paramsObj) {
           //Gold star extra good tweets
           if (replies >= 175 && replies >= 2*retweets && replies >= 1.5*likes) {
             var tweetNode = document.querySelector(`[id = "${tweets[i].fields.tweet_id}"]`)
-            tweetNode.className  " gold-tweet"
+            tweetNode.className += " gold-tweet"
           }
         }
       }
