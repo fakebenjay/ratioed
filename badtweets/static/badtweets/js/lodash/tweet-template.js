@@ -66,7 +66,7 @@ function postTweets(paramsObj) {
 
           var tweet = templateFn({
             'handle': tweets[i].fields.handle,
-            'className': tweetClassName
+            'className': tweetClassName,
             'tweetID': tweets[i].fields.tweet_id,
             'name': tweets[i].fields.name,
             'body': tweets[i].fields.body,
