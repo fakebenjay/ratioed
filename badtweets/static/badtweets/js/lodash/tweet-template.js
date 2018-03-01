@@ -53,18 +53,18 @@ function postTweets(paramsObj) {
 
       for (i=0; i<tweets.length; i++) {
         if (!tweetIDs.includes(tweets[i].fields.tweet_id)) {
-          var replies = parseInt(tweets[i].fields.replies).toLocaleString()
-          var retweets = parseInt(tweets[i].fields.rts).toLocaleString()
-          var likes = parseInt(tweets[i].fields.likes).toLocaleString()
+          var replies = parseInt(tweets[i].fields.replies)
+          var retweets = parseInt(tweets[i].fields.rts)
+          var likes = parseInt(tweets[i].fields.likes)
 
           var tweet = templateFn({
             'handle': tweets[i].fields.handle,
             'tweetID': tweets[i].fields.tweet_id,
             'name': tweets[i].fields.name,
             'body': tweets[i].fields.body,
-            'replies': replies,
-            'retweets': retweets,
-            'likes': likes,
+            'replies': replies.toLocaleString(),
+            'retweets': retweets.toLocaleString(),
+            'likes': likes.toLocaleString(),
             'datetime': dateStringify(tweets[i].fields.datetime),
             'link': `"${tweets[i].fields.link}"`
           })
