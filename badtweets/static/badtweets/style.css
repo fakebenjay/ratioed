@@ -57,11 +57,11 @@ main {
   left: 0;
 }
 
-.tweet:nth-child(odd) {
+.tweet:nth-child(odd):not(.gold-tweet) {
     background: #F8F4EF;
 }
 
-.tweet:nth-child(even) {
+.tweet:nth-child(even):not(.gold-tweet) {
     background: #F5ECDB;
 }
 
