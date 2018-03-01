@@ -97,6 +97,11 @@ img#pic {
   text-align: left;
 }
 
+.gold-tweet {
+  background: #F6C042;
+  border: 4px solid #F8D05D;
+}
+
 #load-div {
   color: white;
   text-align: center;
