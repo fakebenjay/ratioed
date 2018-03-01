@@ -43,7 +43,7 @@ def tweetlist(request, username, date=dt.date.today()):
                         following=soup.find('a', {'data-nav': 'following'})['title'].replace(' Following', '').replace(',', '')
                     )]
 
-        tweets_and_lasttime = scrapeTweets(user, date_string)
+        tweets_and_lasttime = scrape_tweets(user, date_string)
         tweets = tweets_and_lasttime[0]
         last_tweet_time = tweets_and_lasttime[1]
 
@@ -51,7 +51,7 @@ def tweetlist(request, username, date=dt.date.today()):
         tweet_json = serialize('json', tweets, fields=('name', 'handle', 'tweet_id', 'body', 'link', 'datetime', 'replies', 'rts', 'likes'))
         return JsonResponse([user_json, tweet_json, last_tweet_time], safe=False)
 
-def scrapeTweets(username, date):
+def scrape_tweets(username, date):
     tweets = []
     date = parser.parse(date).date()
     tweetscrape = twitterscraper.query_tweets("from%3A" + username, limit=250, poolsize=1, begindate=dt.date(2006,3,21), enddate=date+dt.timedelta(days=1))
@@ -71,18 +71,18 @@ def scrapeTweets(username, date):
 
     return [tweets, last_tweet_time]
 
-def moreTweets(request, username):
+def more_tweets(request, username):
     user = request.GET.get('username')
     datetime = str(parser.parse(request.GET.get('date')).date() + dt.timedelta(days=1))
-    tweets_and_lasttime = scrapeTweets(user, datetime)
+    tweets_and_lasttime = scrape_tweets(user, datetime)
     tweets = tweets_and_lasttime[0]
     last_tweet_time = tweets_and_lasttime[1]
 
     tweet_json = serialize('json', tweets, fields=('name', 'handle', 'tweet_id', 'body', 'link', 'datetime', 'replies', 'rts', 'likes'))
     return JsonResponse([tweet_json, last_tweet_time], safe=False)
 
-def routeTweets(request, username, date=dt.date.today()):
+def route_tweets(request, username, date=dt.date.today()):
     if len(request.GET) == 1:
         return tweetlist(request, username)
     else:
-        return moreTweets(request, username)
+        return more_tweets(request, username)

@@ -57,8 +57,16 @@ function postTweets(paramsObj) {
           var retweets = parseInt(tweets[i].fields.rts).toLocaleString()
           var likes = parseInt(tweets[i].fields.likes).toLocaleString()
 
+          //Gold star extra good tweets
+          if (replies >= 175 && replies >= 2*retweets && replies >= 1.5*likes) {
+            var tweetClassName =  "tweet gold-tweet"
+          } else {
+            var tweetClassName =  "tweet"
+          }
+
           var tweet = templateFn({
             'handle': tweets[i].fields.handle,
+            'className': tweetClassName
             'tweetID': tweets[i].fields.tweet_id,
             'name': tweets[i].fields.name,
             'body': tweets[i].fields.body,
@@ -69,11 +77,6 @@ function postTweets(paramsObj) {
             'link': `"${tweets[i].fields.link}"`
           })
           tweetDiv.innerHTML += tweet
-
-          //Gold star extra good tweets
-          if (replies >= 200 && replies >= 2*retweets && replies >= 1.5*likes) {
-            tweet.className += "gold-tweet"
-          }
         }
       }
 
