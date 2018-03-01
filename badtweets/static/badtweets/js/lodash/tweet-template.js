@@ -56,6 +56,7 @@ function postTweets(paramsObj) {
           var replies = parseInt(tweets[i].fields.replies)
           var retweets = parseInt(tweets[i].fields.rts)
           var likes = parseInt(tweets[i].fields.likes)
+          var ratio = `${(replies/likes).toFixed(2)}:1`
 
           var tweet = templateFn({
             'handle': tweets[i].fields.handle,
@@ -65,6 +66,7 @@ function postTweets(paramsObj) {
             'replies': replies.toLocaleString(),
             'retweets': retweets.toLocaleString(),
             'likes': likes.toLocaleString(),
+            'ratio': ratio,
             'datetime': dateStringify(tweets[i].fields.datetime),
             'link': `"${tweets[i].fields.link}"`
           })

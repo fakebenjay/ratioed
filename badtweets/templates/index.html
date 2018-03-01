@@ -52,6 +52,7 @@
         </div>
       </section>
     </main>
+    <script src="numeral.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
     <script src="static/badtweets/js/wrapper.js"></script>
@@ -81,6 +82,8 @@
         <small>Retweets: <%= retweets %></small>
         <br>
         <small>Likes: <%= likes %></small>
+        <br>
+        <small><strong>Ratio: <%= ratio %></strong></small>
         <br>
         <small><a target="_blank" href=<%= link %>><%= datetime %></a></small>
       </div>
