@@ -59,6 +59,8 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware'
 ]
 
+PREPEND_WWW = True
+
 ROOT_URLCONF = 'ratioed.urls'
 
 TEMPLATES = [
