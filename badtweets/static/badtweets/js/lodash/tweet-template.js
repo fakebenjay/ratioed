@@ -56,7 +56,7 @@ function postTweets(paramsObj) {
           var replies = parseInt(tweets[i].fields.replies)
           var retweets = parseInt(tweets[i].fields.rts)
           var likes = parseInt(tweets[i].fields.likes)
-          var ratio = `${(replies/likes).toFixed(2)}:1`
+          var ratio = numeral(replies/likes).format('0.[00]')
 
           var tweet = templateFn({
             'handle': tweets[i].fields.handle,
