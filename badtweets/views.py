@@ -33,6 +33,7 @@ def tweetlist(request, username, date=dt.date.today()):
         f = urllib.request.urlopen(url)
         soup = BeautifulSoup(f, 'html.parser')
 
+        ## Louis Farrakhan Zero Following workaround
         if (soup.find('a', {'data-nav': 'tweets'})):
             tweets = soup.find('a', {'data-nav': 'tweets'})['title'].replace(' Tweets', '').replace(',', '')
         else:
