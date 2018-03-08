@@ -33,14 +33,29 @@ def tweetlist(request, username, date=dt.date.today()):
         f = urllib.request.urlopen(url)
         soup = BeautifulSoup(f, 'html.parser')
 
+        if (soup.find('a', {'data-nav': 'tweets'})):
+            tweets = soup.find('a', {'data-nav': 'tweets'})['title'].replace(' Tweets', '').replace(',', '')
+        else:
+            tweets = '0'
+
+        if (soup.find('a', {'data-nav': 'followers'})):
+            followers = soup.find('a', {'data-nav': 'followers'})['title'].replace(' Followers', '').replace(',', '')
+        else:
+            followers = '0'
+
+        if (soup.find('a', {'data-nav': 'following'})):
+            following = soup.find('a', {'data-nav': 'following'})['title'].replace(' Following', '').replace(',', '')
+        else:
+            following = '0'
+
         user_list = [User(
                         name=tweetscrape[0].fullname,
                         handle=tweetscrape[0].user,
                         profile_link=url,
                         pic_ref=soup.find('img', {'class': 'ProfileAvatar-image'})['src'],
-                        tweets=soup.find('a', {'data-nav': 'tweets'})['title'].replace(' Tweets', '').replace(',', ''),
-                        followers=soup.find('a', {'data-nav': 'followers'})['title'].replace(' Followers', '').replace(',', ''),
-                        following=soup.find('a', {'data-nav': 'following'})['title'].replace(' Following', '').replace(',', '')
+                        tweets=tweets,
+                        followers=followers,
+                        following=following
                     )]
 
         tweets_and_lasttime = scrape_tweets(user, date_string)
