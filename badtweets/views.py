@@ -7,6 +7,7 @@ from .models import Tweet, User
 from bs4 import BeautifulSoup
 import urllib.request
 from django.core.serializers import serialize
+from IPython import embed
 
 def timezone(time):
     from_zone = tz.tzutc()
