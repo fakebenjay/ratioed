@@ -1,1 +1,1 @@
-web: gunicorn ratioed.wsgi --log-file -
+web: gunicorn ratioed.wsgi:application --log-file -
