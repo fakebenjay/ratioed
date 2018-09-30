@@ -23,7 +23,7 @@ def index(request):
     return render(request, 'index.html')
 
 def tweetlist(request, username, date=dt.date.today()):
-    user = request.GET.get('username')
+    user = request.GET.get("username")
     tweetscrape = twitterscraper.query_tweets("from%3A" + user, limit=1, poolsize=1, begindate=dt.date(2006,3,21), enddate=date+dt.timedelta(days=2))
     date_string = str(date)
 
