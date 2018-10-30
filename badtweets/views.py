@@ -17,6 +17,15 @@ def timezone(time):
 
     return utc.astimezone(to_zone)
 
+def unique_list(lst):
+    new_list = []
+
+    for l in lst:
+        if l not in new_list:
+            new_list.append(l)
+
+    return new_list
+
 # Create your views here.
 
 def index(request):
@@ -71,7 +80,8 @@ def tweetlist(request, username, date=dt.date.today()):
 def scrape_tweets(username, date):
     tweets = []
     date = parser.parse(date).date()
-    tweetscrape = twitterscraper.query_tweets("from%3A" + username, limit=250, poolsize=1, begindate=dt.date(2006,3,21), enddate=date+dt.timedelta(days=1))
+    raw_tweetscrape = twitterscraper.query_tweets("from%3A" + username, limit=250, poolsize=1, begindate=dt.date(2006,3,21), enddate=date+dt.timedelta(days=1))
+    tweetscrape = unique_list(raw_tweetscrape)
 
     if (tweetscrape[0].timestamp.date() == tweetscrape[-1].timestamp.date()):
         last_tweet_time = timezone((tweetscrape[-1].timestamp - dt.timedelta(days=1)).replace(hour=23, minute=59, second=59))
@@ -80,17 +90,21 @@ def scrape_tweets(username, date):
     else:
         last_tweet_time = timezone(tweetscrape[-1].timestamp)
 
+    counter = 0
     for tweet in tweetscrape:
         ## This is where "The Ratio" is defined.
         if (int(tweet.replies) >= 1.5*int(tweet.retweets)) and (int(tweet.replies) > int(tweet.likes)) and (int(tweet.replies) >= 5):
             t = Tweet(name=tweet.fullname, handle=tweet.user, tweet_id=tweet.id, body=tweet.text, link="http://twitter.com/" + tweet.user + "/status/" + tweet.id, datetime=timezone(tweet.timestamp), replies=tweet.replies, rts=tweet.retweets, likes=tweet.likes)
             tweets.append(t)
+            counter += 1
 
     return [tweets, last_tweet_time]
 
 def more_tweets(request, username):
     user = request.GET.get('username')
-    datetime = str(parser.parse(request.GET.get('date')).date() + dt.timedelta(days=1))
+    datetime = str(parser.parse(request.GET.get('date')).date())
+    ## datetime = str(parser.parse(request.GET.get('date')).date() + dt.timedelta(days=1))
+    ## Uncomment when @jack unfucks the duplicate tweetscrape bug and I can work with more than 40 tweets
     tweets_and_lasttime = scrape_tweets(user, datetime)
     tweets = tweets_and_lasttime[0]
     last_tweet_time = tweets_and_lasttime[1]
