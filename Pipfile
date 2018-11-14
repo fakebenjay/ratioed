@@ -39,7 +39,7 @@ pytz = "==2018.3"
 requests = "==2.18.4"
 simplegeneric = "==0.8.1"
 traitlets = "==4.3.2"
-twitterscraper = { git = 'https://github.com/taspinar/twitterscraper.git', ref = '0.9.0', editable = true }
+twitterscraper = { git = 'https://github.com/taspinar/twitterscraper.git', ref = 'master', editable = true }
 typing = "==3.6.4"
 "urllib3" = "==1.22"
 virtualenv = "==15.1.0"
