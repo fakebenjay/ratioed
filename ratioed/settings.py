@@ -26,7 +26,7 @@ SECRET_KEY = '^+i7k^nb5qbe7n()7_*j^27xj6cuvtimz@q)u-0+!wwu9e@v)#'
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    'ratioed.herokuapp.com',
+    'ratioed2.herokuapp.com',
     'www.ratioed.io',
     'www.ratioed.men',
     'ratioed.io',
