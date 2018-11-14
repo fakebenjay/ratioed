@@ -30,9 +30,7 @@ ALLOWED_HOSTS = [
     'www.ratioed.io',
     'www.ratioed.men',
     'ratioed.io',
-    'ratioed.men',
-    'localhost',
-    '127.0.0.1'
+    'ratioed.men'
 ]
 
 
