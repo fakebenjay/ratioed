@@ -1,6 +1,8 @@
 import twitterscraper
 import datetime as dt
 
+##twitterscraper = { git = 'https://github.com/taspinar/twitterscraper.git', ref = 'master', editable = true }
+
 def call_tweets(username, date=dt.date.today()):
     counter = 1
     bad_counter = 0
