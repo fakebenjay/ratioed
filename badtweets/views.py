@@ -102,8 +102,8 @@ def scrape_tweets(username, date):
 
 def more_tweets(request, username):
     user = request.GET.get('username')
-    datetime = str(parser.parse(request.GET.get('date')).date() + dt.timedelta(days=1))
-    ## datetime = str(parser.parse(request.GET.get('date')).date())
+    # datetime = str(parser.parse(request.GET.get('date')).date() + dt.timedelta(days=1))
+    datetime = str(parser.parse(request.GET.get('date')).date())
     ## Uncomment when @jack re-fucks the duplicate tweetscrape bug and I can't work with more than 40 tweets
     tweets_and_lasttime = scrape_tweets(user, datetime)
     tweets = tweets_and_lasttime[0]
