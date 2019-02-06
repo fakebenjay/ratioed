@@ -21,7 +21,8 @@ function tweetCall(paramsObj, callback) {
 			$('input#submit').prop('disabled', false)
 			document.getElementById('load-div').innerHTML = ''
 			if (!!$('#user-infowindow').html()) {
-				document.querySelector('#error-window').innerHTML = `<em style='color:red;'>This user has run out of tweets</em>`
+				document.querySelector('div#good-tweet-error').innerHTML = "That's all the tweets!"
+				// document.querySelector('#error-window').innerHTML = `<em style='color:red;'>This user has run out of tweets</em>`
 				document.querySelector('div.more-tweets').innerHTML = ""
 			} else {
 				document.querySelector('#error-window').innerHTML = `<em style='color:red;'>Please try a valid user</em>`
