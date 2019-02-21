@@ -75,7 +75,7 @@ def tweetlist(request, username, date=dt.date.today()):
 
         user_json = serialize('json', user_list, fields=('name', 'handle', 'profile_link', 'pic_ref', 'tweets', 'followers', 'following'))
         tweet_json = serialize('json', tweets, fields=('name', 'handle', 'tweet_id', 'body', 'link', 'datetime', 'replies', 'rts', 'likes'))
-        return JsonResponse([user_json, tweet_json, last_tweet_time, date], safe=False)
+        return JsonResponse([user_json, tweet_json, last_tweet_time], safe=False)
 
 def scrape_tweets(username, date):
     tweets = []
@@ -110,7 +110,7 @@ def more_tweets(request, username):
     last_tweet_time = tweets_and_lasttime[1]
 
     tweet_json = serialize('json', tweets, fields=('name', 'handle', 'tweet_id', 'body', 'link', 'datetime', 'replies', 'rts', 'likes'))
-    return JsonResponse([tweet_json, last_tweet_time, datetime], safe=False)
+    return JsonResponse([tweet_json, last_tweet_time], safe=False)
 
 def route_tweets(request, username, date=dt.date.today()):
     if len(request.GET) == 1:
