@@ -75,10 +75,11 @@ function postTweets(paramsObj) {
 					if ((replies >= 200 && replies >= 2 * retweets && replies >= 2 * likes) || (ratio >= 5)) {
 						var tweetNode = document.querySelector(`[id = "${tweets[i].fields.tweet_id}"]`)
 						tweetNode.className += " gold-tweet"
-					} else if (likes > replies) {
-						var tweetNode = document.querySelector(`[id = "${tweets[i].fields.tweet_id}"]`)
-						tweetNode.className += " coward-tweet"
 					}
+					// else if (likes > replies) {
+					// 	var tweetNode = document.querySelector(`[id = "${tweets[i].fields.tweet_id}"]`)
+					// 	tweetNode.className += " coward-tweet"
+					// }
 				}
 			}
 

@@ -57,13 +57,11 @@ main {
     left: 0;
 }
 
-.tweet:nth-child(odd):not(.gold-tweet),
-.tweet:nth-child(odd):not(.coward-tweet) {
+.tweet:nth-child(odd):not(.gold-tweet) {
     background: #F8F4EF;
 }
 
-.tweet:nth-child(even):not(.gold-tweet),
-.tweet:nth-child(even):not(.coward-tweet) {
+.tweet:nth-child(even):not(.gold-tweet) {
     background: #F5ECDB;
 }
 
@@ -104,11 +102,10 @@ img#pic {
     border: 4px solid #F8D05D;
 }
 
-.coward-tweet {
+/* .coward-tweet {
     background: #DE9DA8;
     border: 4px solid #EB9FD1;
-}
-
+} */
 #load-div {
     color: white;
     text-align: center;
