@@ -94,7 +94,11 @@ def scrape_tweets(username, date):
 
     for tweet in tweetscrape:
         ## This is where "The Ratio" is defined.
+        ## "Coward's Ratio" is the elif
         if (int(tweet.replies) >= 1.5*int(tweet.retweets)) and (int(tweet.replies) > int(tweet.likes)) and (int(tweet.replies) >= 5):
+            t = Tweet(name=tweet.fullname, handle=tweet.user, tweet_id=tweet.id, body=tweet.text, link="http://twitter.com/" + tweet.user + "/status/" + tweet.id, datetime=timezone(tweet.timestamp), replies=tweet.replies, rts=tweet.retweets, likes=tweet.likes)
+            tweets.append(t)
+        elif (int(tweet.retweets) =< 5 and int(tweet.replies) >= 50) or (int(tweet.retweets) < 10 and int(tweet.replies) >= 70)
             t = Tweet(name=tweet.fullname, handle=tweet.user, tweet_id=tweet.id, body=tweet.text, link="http://twitter.com/" + tweet.user + "/status/" + tweet.id, datetime=timezone(tweet.timestamp), replies=tweet.replies, rts=tweet.retweets, likes=tweet.likes)
             tweets.append(t)
 
