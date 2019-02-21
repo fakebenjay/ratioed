@@ -33,7 +33,7 @@ def index(request):
 
 def tweetlist(request, username, date=dt.date.today()):
     user = request.GET.get('username')
-    tweetscrape = twitterscraper.query_tweets("from%3A" + user, limit=1, poolsize=1, begindate=dt.date(2006,3,21), enddate=date+dt.timedelta(days=2))
+    tweetscrape = twitterscraper.query_tweets("from%3A" + user, limit=1, poolsize=1, begindate=dt.date(2006,3,21), enddate=date+dt.timedelta(days=1))
     date_string = str(date)
 
     if len(tweetscrape) == 0 or len(user.strip()) == 0:
